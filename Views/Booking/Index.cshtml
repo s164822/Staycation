@@ -1,0 +1,83 @@
+@model IEnumerable<Staycation.Models.Booking>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AntalVoksne)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AntalBørn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TjekIndDato)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TjekUdDato)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalPris)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kunde)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VærelseType)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AntalVoksne)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AntalBørn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TjekIndDato)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TjekUdDato)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalPris)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kunde.Efternavn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VærelseType.Type)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.BookingNummer">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.BookingNummer">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.BookingNummer">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-controller="Home" asp-action="Index">Back to Home</a>
+</body>
+</html>
