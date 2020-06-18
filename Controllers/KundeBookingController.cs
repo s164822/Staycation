@@ -63,9 +63,26 @@ namespace Staycation.Controllers
         // GET: KundeBooking/Create
         public IActionResult Create()
         {
-            ViewData["VærelseTypeId"] = new SelectList(_context.VærelseType, "Id", "Beskrivelse");
-            return View();
+            ViewData["VærelseTypeId"] = new SelectList(_context.VærelseType, "Id", "Beskrivelse"); // Henter værdier til dropdown listen for værelsestype
+
+            Booking booking = _kundeBookingService.getCurrentBooking();
+
+            if(booking != null) //hvis booking har en værdi, giver vi booking objektet med videre til vores view
+            {
+                return View(booking);
+            }
+
+            return View(new Booking()
+            {
+                TotalPris = 0,
+                VærelseTypeId = 1,
+                AntalBørn = 0,
+                AntalVoksne = 0,
+                TjekIndDato = DateTime.Now,
+                TjekUdDato = DateTime.Now.AddDays(2)
+            }); //Hvis ikke booking har en værdi, så laver vi et nyt object med nogle standard værdier, som vi giver videre til vores view
         }
+
 
         // POST: KundeBooking/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
