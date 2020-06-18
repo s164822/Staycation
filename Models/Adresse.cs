@@ -8,6 +8,7 @@ namespace Staycation.Models
         public Adresse()
         {
             Kunde = new HashSet<Kunde>();
+            //Hash er fordi man giver den en anden værdi en hvad det rent faktisk er, så hvis man bliver hachek er der noget sikekrhed i, at hackeren ikke kan se hvad den sande værdi er 
         }
 
         public int Id { get; set; }

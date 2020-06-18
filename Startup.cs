@@ -1,16 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Staycation.Data;
+using Staycation.Services;
 
 namespace Staycation
 {
@@ -27,6 +22,7 @@ namespace Staycation
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton(new KundeBookingService());
             services.AddDbContext<StaycationDBContext>(options => options.UseMySQL("server=localhost;port=3306;user=root;password=root;database=StaycationDB"));
         }
 

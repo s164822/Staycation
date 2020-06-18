@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Staycation.Models;
@@ -154,76 +153,6 @@ namespace Staycation.Data
                 entity.HasNoKey();
 
                 entity.ToView("fuldbooking");
-
-                entity.Property(e => e.AdresseId)
-                    .HasColumnName("Adresse_ID")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.AntalBørn)
-                    .HasColumnName("Antal_børn")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.AntalVoksne)
-                    .HasColumnName("Antal_voksne")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.BookingNummer)
-                    .HasColumnName("Booking_nummer")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.Efternavn)
-                    .IsRequired()
-                    .HasMaxLength(45)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Fornavn)
-                    .IsRequired()
-                    .HasMaxLength(45)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Fødselsdagsdato).HasColumnType("date");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.KundeId)
-                    .HasColumnName("Kunde_ID")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.Pasnummer)
-                    .IsRequired()
-                    .HasMaxLength(45)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.StatusId)
-                    .HasColumnName("Status_ID")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.TelefonNummer)
-                    .HasColumnName("Telefon_nummer")
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.TjekIndDato)
-                    .HasColumnName("Tjek_ind_dato")
-                    .HasColumnType("date");
-
-                entity.Property(e => e.TjekUdDato)
-                    .HasColumnName("Tjek_ud_dato")
-                    .HasColumnType("date");
-
-                entity.Property(e => e.TotalPris)
-                    .HasColumnName("Total_pris")
-                    .HasColumnType("decimal(10,2)");
-
-                entity.Property(e => e.VærelseTypeId)
-                    .HasColumnName("Værelse_type_ID")
-                    .HasColumnType("int(11)");
             });
 
             modelBuilder.Entity<Kunde>(entity =>
@@ -256,11 +185,6 @@ namespace Staycation.Data
 
                 entity.Property(e => e.Fødselsdagsdato).HasColumnType("date");
 
-                entity.Property(e => e.Pasnummer)
-                    .IsRequired()
-                    .HasMaxLength(45)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.TelefonNummer)
                     .HasColumnName("Telefon_nummer")
                     .HasColumnType("int(11)");
@@ -279,6 +203,13 @@ namespace Staycation.Data
                 entity.Property(e => e.Id)
                     .HasColumnName("ID")
                     .HasColumnType("int(11)");
+
+                entity.Property(e => e.Beskrivelse)
+                    .IsRequired()
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Pris).HasColumnType("decimal(10,2)");
 
                 entity.Property(e => e.Type)
                     .IsRequired()

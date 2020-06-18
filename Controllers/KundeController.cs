@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Staycation.Data;
 using Staycation.Models;
+using Staycation.Services;
 
 namespace Staycation.Controllers
 {
     public class KundeController : Controller
     {
         private readonly StaycationDBContext _context;
+        KundeBookingService _kundeBookingService;
 
-        public KundeController(StaycationDBContext context)
+        public KundeController(StaycationDBContext context, KundeBookingService kundeBookingService)
         {
             _context = context;
+            _kundeBookingService = kundeBookingService;
         }
 
         // GET: Kunde
@@ -44,6 +47,24 @@ namespace Staycation.Controllers
 
             return View(kunde);
         }
+
+        // GET: Kunde/OpretKundeEfterBooking
+        public IActionResult OpretKundeEfterBooking()
+        {
+            return View();
+        }
+
+
+        // POST: Kunde/OpretKundeEfterBooking
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> KundeOgBookingOverblik(Kunde kunde)
+        {
+            _kundeBookingService.setCurrentBookingKunde(kunde);
+  
+            return RedirectToAction("Overblik", "KundeBooking");
+        }
+
 
         // GET: Kunde/Create
         public IActionResult Create()

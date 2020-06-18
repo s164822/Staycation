@@ -1,0 +1,76 @@
+@model Staycation.Models.Booking
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>Booking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BookingNummer" />
+            <div class="form-group">
+                <label asp-for="AntalVoksne" class="control-label"></label>
+                <input asp-for="AntalVoksne" class="form-control" />
+                <span asp-validation-for="AntalVoksne" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AntalBørn" class="control-label"></label>
+                <input asp-for="AntalBørn" class="form-control" />
+                <span asp-validation-for="AntalBørn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TjekIndDato" class="control-label"></label>
+                <input asp-for="TjekIndDato" class="form-control" />
+                <span asp-validation-for="TjekIndDato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TjekUdDato" class="control-label"></label>
+                <input asp-for="TjekUdDato" class="form-control" />
+                <span asp-validation-for="TjekUdDato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPris" class="control-label"></label>
+                <input asp-for="TotalPris" class="form-control" />
+                <span asp-validation-for="TotalPris" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VærelseTypeId" class="control-label"></label>
+                <select asp-for="VærelseTypeId" class="form-control" asp-items="ViewBag.VærelseTypeId"></select>
+                <span asp-validation-for="VærelseTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusId" class="control-label"></label>
+                <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
+                <span asp-validation-for="StatusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KundeId" class="control-label"></label>
+                <select asp-for="KundeId" class="form-control" asp-items="ViewBag.KundeId"></select>
+                <span asp-validation-for="KundeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

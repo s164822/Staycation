@@ -1,0 +1,125 @@
+@model Staycation.Models.Booking
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>Booking</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Antal Voksne
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AntalVoksne)
+        </dd>
+        <dt class="col-sm-2">
+            Antal Børn
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AntalBørn)
+        </dd>
+        <dt class="col-sm-2">
+            Tjek Ind Dato
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TjekIndDato)
+        </dd>
+        <dt class="col-sm-2">
+            Tjek Ud Dato
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TjekUdDato)
+        </dd>
+        <dt class="col-sm-2">
+            Værelse Type
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VærelseType.Beskrivelse)
+        </dd>
+        <dt class="col-sm-2">
+            Total Pris
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalPris)
+        </dd>
+
+
+
+
+
+        <dt class="col-sm-2">
+            Fornavn
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kunde.Fornavn)
+        </dd>
+        <dt class="col-sm-2">
+            Efternavn
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kunde.Efternavn)
+        </dd>
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kunde.Email)
+        </dd>
+        <dt class="col-sm-2">
+            TelefonNummer
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kunde.TelefonNummer)
+        </dd>
+        <dt class="col-sm-2">
+            Fødselsdag
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kunde.Fødselsdagsdato)
+        </dd>
+        <dt class="col-sm-2">
+            Adresse
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kunde.Adresse.Adresse1)
+        </dd>
+        <dt class="col-sm-2">
+            Nummer
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kunde.Adresse.Nummer)
+        </dd>
+        <dt class="col-sm-2">
+            Etage
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kunde.Adresse.Etage)
+        </dd>
+        <dt class="col-sm-2">
+            Postnummer
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kunde.Adresse.PostNummer)
+        </dd>
+        <dt class="col-sm-2">
+            By
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kunde.Adresse.By)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.BookingNummer">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>

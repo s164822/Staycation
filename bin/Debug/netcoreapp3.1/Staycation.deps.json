@@ -28,6 +28,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.4",
           "Microsoft.EntityFrameworkCore.Sqlite": "3.1.4",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.4",
+          "Microsoft.Extensions.Logging.Debug": "3.1.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.3",
           "MySql.Data.EntityFrameworkCore": "8.0.20",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -132,7 +133,6 @@
           "Microsoft.Extensions.Localization": "3.1.0.0",
           "Microsoft.Extensions.Logging.Configuration": "3.1.0.0",
           "Microsoft.Extensions.Logging.Console": "3.1.0.0",
-          "Microsoft.Extensions.Logging.Debug": "3.1.0.0",
           "Microsoft.Extensions.Logging.EventLog": "3.1.0.0",
           "Microsoft.Extensions.Logging.EventSource": "3.1.0.0",
           "Microsoft.Extensions.Logging.TraceSource": "3.1.0.0",
@@ -976,6 +976,20 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Debug/3.1.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "3.1.5"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Debug.dll": {
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.100.119.61404"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Debug.dll": {}
         }
       },
       "Microsoft.Extensions.Options/3.1.5": {
@@ -3161,12 +3175,6 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Logging.Debug/3.1.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Logging.Debug.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.Extensions.Logging.EventLog/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.Logging.EventLog.dll": {}
@@ -4444,6 +4452,13 @@
       "sha512": "sha512-BGFj7KNTkEIrntWq2wSqpCnLtYgCGHiC46+5Srvj+xBV0bTJj1DQ09rwyckqYO3vsrMV+hGLAW0HRvo6txqmDQ==",
       "path": "microsoft.extensions.logging.abstractions/3.1.5",
       "hashPath": "microsoft.extensions.logging.abstractions.3.1.5.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Debug/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-L50f1F9ZdvvBmGvdoUONsh6ScUtG+mP8TEYMHMKR3a0cSPYMHv28GnNPhbXY5zN0fr53So0I8SR2M02utn2zNQ==",
+      "path": "microsoft.extensions.logging.debug/3.1.1",
+      "hashPath": "microsoft.extensions.logging.debug.3.1.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Options/3.1.5": {
       "type": "package",
@@ -5931,11 +5946,6 @@
       "sha512": ""
     },
     "Microsoft.Extensions.Logging.Console/3.1.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Logging.Debug/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

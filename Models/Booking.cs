@@ -20,3 +20,7 @@ namespace Staycation.Models
         public virtual VærelseType VærelseType { get; set; }
     }
 }
+
+
+
+

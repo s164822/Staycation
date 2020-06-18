@@ -14,7 +14,6 @@ namespace Staycation.Models
         public string Email { get; set; }
         public int AdresseId { get; set; }
         public int TelefonNummer { get; set; }
-        public string Pasnummer { get; set; }
         public string Fornavn { get; set; }
         public string Efternavn { get; set; }
         public DateTime Fødselsdagsdato { get; set; }

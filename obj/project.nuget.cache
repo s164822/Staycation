@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oRgyQtL7rturOZ06WlJJPAzFr4Rg7GZ/fAjfGXZyvsxmaniiJGMb9J2IEFFlua16TwxfMeIDvpf+UGKajhTHPg==",
+  "dgSpecHash": "TZaji0Yqln1+tnI0XBg/rYCZRqiO2Zb6YNOXGfpElskOHCSUipeaCLeCdGw1LQbC4Tkb1a+SZPMx1u5UJfIscg==",
   "success": true,
   "projectFilePath": "/Users/hjorth/Projects/Julio/Staycation/Staycation/Staycation.csproj",
   "expectedPackageFiles": [
@@ -44,6 +44,7 @@
     "/Users/hjorth/.nuget/packages/microsoft.extensions.dependencymodel/3.1.4/microsoft.extensions.dependencymodel.3.1.4.nupkg.sha512",
     "/Users/hjorth/.nuget/packages/microsoft.extensions.logging/3.1.5/microsoft.extensions.logging.3.1.5.nupkg.sha512",
     "/Users/hjorth/.nuget/packages/microsoft.extensions.logging.abstractions/3.1.5/microsoft.extensions.logging.abstractions.3.1.5.nupkg.sha512",
+    "/Users/hjorth/.nuget/packages/microsoft.extensions.logging.debug/3.1.1/microsoft.extensions.logging.debug.3.1.1.nupkg.sha512",
     "/Users/hjorth/.nuget/packages/microsoft.extensions.options/3.1.5/microsoft.extensions.options.3.1.5.nupkg.sha512",
     "/Users/hjorth/.nuget/packages/microsoft.extensions.primitives/3.1.5/microsoft.extensions.primitives.3.1.5.nupkg.sha512",
     "/Users/hjorth/.nuget/packages/microsoft.identity.client/3.0.8/microsoft.identity.client.3.0.8.nupkg.sha512",
