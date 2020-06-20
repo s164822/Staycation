@@ -5,8 +5,6 @@ namespace Staycation.Services
 {
     public class KundeBookingService
     {
-        private static KundeBookingService _service;
-
         public Booking currentBooking;
 
         public KundeBookingService()
@@ -14,23 +12,17 @@ namespace Staycation.Services
 
         }
 
-        public static KundeBookingService getInstance()
-        {
-            if (_service == null)
-            {
-                return getInstance();
-            }
-            return _service;
-        }
-
         public void setCurrentBookingKunde(Kunde kunde)
         {
-            currentBooking.Kunde = kunde;
+            if(currentBooking != null)
+            {
+                currentBooking.Kunde = kunde;
+            }
         }
 
         public Kunde getCurrentBookingKunde()
         {
-            return currentBooking.Kunde;
+            return currentBooking != null ? currentBooking.Kunde : null;
         }
 
         public void setCurrentBooking(Booking booking)
@@ -41,6 +33,34 @@ namespace Staycation.Services
         public Booking getCurrentBooking()
         {
             return currentBooking;
+        }
+
+        public Booking getFinalBooking()
+        {
+            calculateTotalPrice();
+
+            return currentBooking;
+        }
+
+        private void calculateTotalPrice()
+        {
+
+            //LOGIK FOR PRISBEREGNING
+
+            decimal prisPrVoksenPrNat = currentBooking.VærelseType.Pris * currentBooking.AntalVoksne;
+
+            decimal prisPrBarnPrNat = 0;
+            if (currentBooking.AntalBørn != null)
+            {
+                prisPrBarnPrNat = currentBooking.VærelseType.Pris * 0.5m * (int) currentBooking.AntalBørn;
+            }
+
+            decimal totalPrisPrNat = prisPrVoksenPrNat + prisPrBarnPrNat;
+
+            decimal totalPris = totalPrisPrNat * (decimal) (currentBooking.TjekUdDato - currentBooking.TjekIndDato).TotalDays;
+
+            currentBooking.TotalPris = totalPris;
+
         }
 
 

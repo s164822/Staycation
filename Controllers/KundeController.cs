@@ -51,18 +51,39 @@ namespace Staycation.Controllers
         // GET: Kunde/OpretKundeEfterBooking
         public IActionResult OpretKundeEfterBooking()
         {
-            return View();
+            Kunde kunde = _kundeBookingService.getCurrentBookingKunde();
+
+            if (kunde != null) //hvis booking har en værdi, giver vi booking objektet med videre til vores view
+            {
+                return View(kunde);
+            }
+
+            return View(new Kunde()
+            {
+                Fødselsdagsdato = DateTime.Now.AddYears(25)
+            });
         }
 
 
         // POST: Kunde/OpretKundeEfterBooking
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> KundeOgBookingOverblik(Kunde kunde)
+        public async Task<IActionResult> KundeOgBookingOverblik(Kunde kunde, string submit)
         {
+
             _kundeBookingService.setCurrentBookingKunde(kunde);
-  
-            return RedirectToAction("Overblik", "KundeBooking");
+
+            if (submit.Equals("Næste"))
+            {
+                return RedirectToAction("Overblik", "KundeBooking");
+
+            } else
+            {
+                return RedirectToAction("Create", "KundeBooking"); ;
+
+            }
+
+
         }
 
 

@@ -54,11 +54,48 @@ namespace Staycation.Controllers
 
         public IActionResult Overblik()
         {
-            Booking booking = _kundeBookingService.getCurrentBooking();
-            Console.WriteLine("Booking (Overblik): " + booking);
+            Booking booking = _kundeBookingService.getFinalBooking(); //Sørger for at regne total pris ud, og returnere derefter currentBooking
+
             return View(booking); //return view der passer til metoden
         }
 
+        
+        public IActionResult ConfirmBooking(string submit)
+        {
+            if (submit.Equals("Bekræft"))
+            {
+                Booking booking = _kundeBookingService.getCurrentBooking();
+                booking.Status = null;
+                booking.VærelseType = null;
+
+                _context.Add(booking);
+
+                List<Booking> temp = _context.Booking.ToList();
+
+                _context.SaveChanges();
+
+                return RedirectToAction("BookingBekræftelse");
+            } else
+            {
+                return RedirectToAction("OpretKundeEfterBooking", "Kunde");
+            }
+
+        }
+
+        public IActionResult BookingBekræftelse()
+        {
+            Booking booking = _kundeBookingService.getCurrentBooking(); //get current booking
+
+            _kundeBookingService.setCurrentBooking(null); //resets current booking
+
+            if (booking != null)
+            {
+                return View(booking);
+            } else
+            {
+                return RedirectToAction("Create");
+            }
+        }
 
         // GET: KundeBooking/Create
         public IActionResult Create()
@@ -66,7 +103,7 @@ namespace Staycation.Controllers
             ViewData["VærelseTypeId"] = new SelectList(_context.VærelseType, "Id", "Beskrivelse"); // Henter værdier til dropdown listen for værelsestype
 
             Booking booking = _kundeBookingService.getCurrentBooking();
-
+            
             if(booking != null) //hvis booking har en værdi, giver vi booking objektet med videre til vores view
             {
                 return View(booking);
@@ -94,6 +131,8 @@ namespace Staycation.Controllers
             booking.StatusId = 1;
             booking.Status = await _context.BookingStatus.FirstOrDefaultAsync(bs => bs.Id == booking.StatusId); // Sets default value
             booking.VærelseType = await _context.VærelseType.FirstOrDefaultAsync(vt => vt.Id == booking.VærelseTypeId);
+
+            booking.Kunde = _kundeBookingService.getCurrentBookingKunde();
 
             _kundeBookingService.setCurrentBooking(booking);
             Console.WriteLine("Booking (Create): " + _kundeBookingService.getCurrentBooking());

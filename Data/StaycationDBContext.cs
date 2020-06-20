@@ -19,7 +19,6 @@ namespace Staycation.Data
         public virtual DbSet<Adresse> Adresse { get; set; }
         public virtual DbSet<Booking> Booking { get; set; }
         public virtual DbSet<BookingStatus> BookingStatus { get; set; }
-        public virtual DbSet<Fuldbooking> Fuldbooking { get; set; }
         public virtual DbSet<Kunde> Kunde { get; set; }
         public virtual DbSet<VærelseType> VærelseType { get; set; }
 
@@ -146,13 +145,6 @@ namespace Staycation.Data
                     .IsRequired()
                     .HasMaxLength(45)
                     .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Fuldbooking>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToView("fuldbooking");
             });
 
             modelBuilder.Entity<Kunde>(entity =>

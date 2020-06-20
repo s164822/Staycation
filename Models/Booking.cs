@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Staycation.Models
 {
@@ -8,7 +9,9 @@ namespace Staycation.Models
         public int BookingNummer { get; set; }
         public int AntalVoksne { get; set; }
         public int? AntalBørn { get; set; }
+        [DataType(DataType.Date)]
         public DateTime TjekIndDato { get; set; }
+        [DataType(DataType.Date)]
         public DateTime TjekUdDato { get; set; }
         public decimal TotalPris { get; set; }
         public int VærelseTypeId { get; set; }

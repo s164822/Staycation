@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Staycation.Models
 {
@@ -16,6 +17,7 @@ namespace Staycation.Models
         public int TelefonNummer { get; set; }
         public string Fornavn { get; set; }
         public string Efternavn { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Fødselsdagsdato { get; set; }
 
         public virtual Adresse Adresse { get; set; }
