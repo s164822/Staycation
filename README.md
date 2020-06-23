@@ -1,7 +1,6 @@
 # Staycation
-WELCOME TO THE JUNGLE
+Staycation
+
+lavet af Sigurd, Alexander, Maja og Julie 
 
 
-mvh
-
-Julie
